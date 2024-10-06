@@ -1,3 +1,7 @@
+# Manually created by me
+.vscode
+/bin/*
+
 # Prerequisites
 *.d
 

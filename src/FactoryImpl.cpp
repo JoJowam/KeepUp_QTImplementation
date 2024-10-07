@@ -2,7 +2,6 @@
 #include "ServiceOrder.hpp"
 #include "ServiceOrderImpl.hpp"
 
-#include <iostream>
 #include <algorithm>
 
 FactoryImpl* FactoryImpl::_instance = nullptr;
@@ -50,4 +49,21 @@ bool FactoryImpl::destroyServiceOrder(ServiceOrder* serviceOrder) {
 
 void FactoryImpl::add(ServiceOrder* serviceOrder) {
     serviceOrders.push_back(serviceOrder);
+}
+
+vector<ServiceOrder*> FactoryImpl::getAllServiceOrders() const {
+    return serviceOrders;
+}
+
+
+bool FactoryImpl::setServiceOrderPosted(ServiceOrder* serviceOrder) {
+    if (serviceOrder != nullptr) {
+        if (!serviceOrder->getPostedOrderState()) {
+            serviceOrder->setPostedOrderState(true);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    return false;
 }

@@ -9,7 +9,9 @@ class ServiceOrder {
     public:
         virtual ~ServiceOrder() = default;
 
-        //TODO: Implementar verificações dentro dos setters para iputs inconsistentes
+        virtual void setPostedOrderState(const bool& postedState) = 0;
+        virtual bool getPostedOrderState() const = 0;
+
         virtual void setOrderName(const string& name) = 0;
         virtual string getOrderName() const = 0;
 

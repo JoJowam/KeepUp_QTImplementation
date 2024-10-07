@@ -1,8 +1,16 @@
 #include "ServiceOrderImpl.hpp"
 
 ServiceOrderImpl::ServiceOrderImpl(const string& name, const string& equipment, const string& sector, const string& priority, const string& deadline, const string& orderType, const string& description)
-    : orderName(name), equipment(equipment), sector(sector), priority(priority), deadline(deadline), orderType(orderType), errorDescription(description) {}
-    
+    : orderName(name), equipment(equipment), sector(sector), priority(priority), deadline(deadline), orderType(orderType), errorDescription(description), posted(false) {}
+
+void ServiceOrderImpl::setPostedOrderState(const bool& postedState) {
+    posted = postedState;
+}
+
+bool ServiceOrderImpl::getPostedOrderState() const {
+    return posted;
+}
+
 void ServiceOrderImpl::setOrderName(const string& name) {
     orderName = name;
 }

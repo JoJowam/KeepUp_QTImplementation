@@ -1,8 +1,8 @@
 funcional:
-	g++ src/*.cpp test/funcional/*.cpp -o bin/funcionalTests
+	g++ src/*.cpp test/funcional/*.cpp -o build/funcionalTests
 
 unit:
-	g++ src/*.cpp test/unit/*.cpp -o bin/unitTests
+	g++ src/*.cpp test/unit/*.cpp -o build/unitTests
 
 clean: 
 	rm -f *.o main

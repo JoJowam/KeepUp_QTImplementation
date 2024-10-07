@@ -4,6 +4,8 @@
 #include "ServiceOrder.hpp"
 
 class ServiceOrderImpl : public ServiceOrder {
+    friend class UnitServiceOrder;
+
     private:
         string orderName;
         string equipment;
@@ -12,11 +14,15 @@ class ServiceOrderImpl : public ServiceOrder {
         string deadline;
         string orderType;
         string errorDescription;
+        bool posted;
 
     public:
         ServiceOrderImpl(const string& name, const string& equipment, const string& sector, const string& priority, const string& deadline, const string& orderType, const string& description);
 
         ~ServiceOrderImpl() override = default;
+
+        void setPostedOrderState(const bool& postedState) override;
+        bool getPostedOrderState() const override;
 
         void setOrderName(const string& name) override;
         string getOrderName() const override;

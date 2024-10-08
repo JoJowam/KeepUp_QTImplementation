@@ -1,6 +1,7 @@
 # Manually created by me
 .vscode
 /build/*
+*.user
 
 # Prerequisites
 *.d

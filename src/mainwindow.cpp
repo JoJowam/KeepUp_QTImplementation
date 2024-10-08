@@ -61,7 +61,6 @@ void MainWindow::on_pushButton_clicked() {
     std::string orderType = tipoOrdem.toStdString();
     std::string description = descricaoProblema.toStdString();
 
-    // Chama a fábrica para criar a ordem de serviço
     Factory* factory = FactoryImpl::getInstance();
     ServiceOrder* serviceOrder = factory->createServiceOrder(
         orderName,
@@ -73,7 +72,6 @@ void MainWindow::on_pushButton_clicked() {
         description
     );
 
-    // Exibe uma mensagem de sucesso
     QMessageBox::information(this, "KeepUp", "Ordem de serviço criada com sucesso.");
 }
 

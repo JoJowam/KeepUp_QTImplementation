@@ -25,8 +25,6 @@ private slots:
 
     void on_actionAbrir_2_triggered();
 
-    void on_actionAbrir_triggered(bool checked);
-
 private:
     Ui::MainWindow *ui;
 

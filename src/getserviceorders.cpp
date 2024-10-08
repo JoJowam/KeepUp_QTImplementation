@@ -21,11 +21,12 @@ getServiceOrders::getServiceOrders(QWidget *parent) :
             for (ServiceOrder* order : serviceOrders) {
                 if (order != nullptr) {
                     QString orderDetails = QString::fromStdString(order->getOrderName())
-                                           + " - " + QString::fromStdString(order->getDeadline());
+                    + " - " + QString::fromStdString(order->getDeadline());
 
                     QListWidgetItem* item = new QListWidgetItem(orderDetails);
 
                     QString priority = QString::fromStdString(order->getPriority());
+
                     if (priority == "Alto") {
                         item->setBackground(Qt::red);
                     } else if (priority == "Baixo") {
@@ -33,8 +34,12 @@ getServiceOrders::getServiceOrders(QWidget *parent) :
                     } else if (priority == "Médio") {
                         item->setBackground(QColor(255, 165, 0));
                     }
+                    if (order->getPostedOrderState()) {
+                        item->setForeground(Qt::blue);
+                    } else {
+                        item->setForeground(Qt::black);
+                    }
 
-                    item->setForeground(Qt::black);
                     ui->listWidget->addItem(item);
                 } else {
                     QMessageBox::warning(this, "Erro", "Ordem de serviço nula detectada.");
@@ -95,7 +100,6 @@ void getServiceOrders::on_eraseButton_clicked(){
 
 
 void getServiceOrders::on_sendButton_clicked(){
-    // Obtém o item atualmente selecionado na lista
     QListWidgetItem* currentItem = ui->listWidget->currentItem();
 
     if (currentItem != nullptr) {
